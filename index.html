@@ -1,0 +1,1674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Singular - Import from China</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #3a86ff;
+            --primary-dark: #2563eb;
+            --secondary: #ff006e;
+            --accent: #8338ec;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --gray: #64748b;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--dark);
+            background-color: var(--light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header & Navigation */
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+        
+        .logo-mark {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 12px;
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .logo-text {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--dark);
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .cta-button {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .cta-button:hover {
+            background-color: var(--primary-dark);
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 150px 0 100px;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            max-width: 600px;
+            z-index: 2;
+            position: relative;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--gray);
+            margin-bottom: 30px;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .secondary-button {
+            background-color: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .secondary-button:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .floating-elements {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+        }
+        
+        .floating-box {
+            position: absolute;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .floating-box:nth-child(1) {
+            top: 20%;
+            right: 10%;
+            animation-delay: 0s;
+            width: 200px;
+        }
+        
+        .floating-box:nth-child(2) {
+            top: 50%;
+            right: 25%;
+            animation-delay: 2s;
+            width: 220px;
+        }
+        
+        .floating-box:nth-child(3) {
+            top: 30%;
+            right: 5%;
+            animation-delay: 4s;
+            width: 180px;
+        }
+        
+        .floating-box i {
+            font-size: 24px;
+            margin-right: 10px;
+            color: var(--primary);
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-20px) rotate(5deg);
+            }
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+        }
+        
+        /* Services Section */
+        .services {
+            padding: 100px 0;
+            background-color: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+        
+        .section-title p {
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: var(--primary);
+        }
+        
+        .service-card i {
+            font-size: 40px;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        
+        /* Products Section */
+        .products {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+        }
+        
+        .products-filter {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            gap: 10px;
+        }
+        
+        .filter-button {
+            background: white;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            padding: 8px 20px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .filter-button.active, .filter-button:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .product-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s;
+            cursor: pointer;
+            opacity: 0;
+            transform: translateY(50px);
+        }
+        
+        .product-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.6s, transform 0.6s;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .product-image {
+            height: 200px;
+            background: linear-gradient(45deg, #3b82f6, #60a5fa);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 60px;
+        }
+        
+        .product-content {
+            padding: 20px;
+        }
+        
+        .product-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+        
+        .product-content p {
+            color: var(--gray);
+            margin-bottom: 15px;
+        }
+        
+        .shipment-type {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-right: 8px;
+        }
+        
+        .shipment-type.air {
+            background: #e0f2fe;
+            color: #0369a1;
+        }
+        
+        .shipment-type.ship {
+            background: #fef3c7;
+            color: #92400e;
+        }
+        
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 2000;
+            overflow-y: auto;
+            padding: 20px;
+        }
+        
+        .modal-content {
+            background-color: white;
+            margin: 40px auto;
+            border-radius: 12px;
+            max-width: 900px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            animation: modalFade 0.3s;
+            position: relative;
+        }
+        
+        @keyframes modalFade {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .modal-header {
+            padding: 20px 30px;
+            border-bottom: 1px solid #e2e8f0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .modal-header h2 {
+            font-size: 1.8rem;
+            color: var(--dark);
+        }
+        
+        .close-modal {
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--gray);
+            transition: color 0.3s;
+        }
+        
+        .close-modal:hover {
+            color: var(--secondary);
+        }
+        
+        .modal-body {
+            padding: 30px;
+        }
+        
+        .modal-product-details {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .modal-product-image {
+            flex: 1;
+            background: linear-gradient(45deg, #3b82f6, #60a5fa);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 80px;
+            min-height: 300px;
+        }
+        
+        .modal-product-info {
+            flex: 1;
+        }
+        
+        .modal-product-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+        
+        .modal-product-info p {
+            color: var(--gray);
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+        
+        .product-specs {
+            margin: 20px 0;
+        }
+        
+        .product-specs h4 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+        
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+        
+        .spec-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+        
+        .spec-item i {
+            color: var(--primary);
+            margin-right: 10px;
+        }
+        
+        .related-products {
+            margin-top: 40px;
+        }
+        
+        .related-products h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+        
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        
+        .related-item {
+            background: #f8fafc;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .related-item:hover {
+            transform: translateY(-5px);
+            background: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .related-item i {
+            font-size: 30px;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        .related-item h4 {
+            font-size: 1rem;
+            color: var(--dark);
+        }
+        
+        /* Quote Modal */
+        .quote-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .form-group label {
+            font-weight: 500;
+            color: var(--dark);
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            padding: 12px 15px;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+        }
+        
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        .submit-button {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 10px;
+        }
+        
+        .submit-button:hover {
+            background-color: var(--primary-dark);
+        }
+        
+        /* How It Works */
+        .how-it-works {
+            padding: 100px 0;
+            background: white;
+        }
+        
+        .process-steps {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            position: relative;
+        }
+        
+        .process-steps::before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: #e2e8f0;
+            z-index: 1;
+        }
+        
+        .step {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            flex: 1;
+        }
+        
+        .step-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: white;
+            font-size: 30px;
+            position: relative;
+        }
+        
+        .step h3 {
+            margin-bottom: 10px;
+        }
+        
+        .step p {
+            color: var(--gray);
+            max-width: 250px;
+            margin: 0 auto;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .cta-section p {
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.9;
+        }
+        
+        .cta-button.light {
+            background: white;
+            color: var(--primary);
+        }
+        
+        .cta-button.light:hover {
+            background: #f0f9ff;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 70px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: #f8fafc;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column a {
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-column a:hover {
+            color: white;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: background 0.3s;
+        }
+        
+        .social-links a:hover {
+            background: var(--primary);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+        
+        /* Newsletter Component */
+        .newsletter-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1500;
+            max-width: 350px;
+            transition: transform 0.5s ease-in-out;
+        }
+        
+        .newsletter-container.hidden {
+            transform: translateX(400px);
+        }
+        
+        .newsletter {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            position: relative;
+        }
+        
+        .newsletter-close {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 20px;
+            cursor: pointer;
+            color: var(--gray);
+            transition: color 0.3s;
+        }
+        
+        .newsletter-close:hover {
+            color: var(--secondary);
+        }
+        
+        .newsletter h3 {
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+        
+        .newsletter p {
+            color: var(--gray);
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+        
+        .newsletter-form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .newsletter-form input {
+            padding: 10px 15px;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .newsletter-form button {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .newsletter-form button:hover {
+            background-color: var(--primary-dark);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .floating-elements {
+                display: none;
+            }
+            
+            .process-steps {
+                flex-direction: column;
+                gap: 40px;
+            }
+            
+            .process-steps::before {
+                display: none;
+            }
+            
+            .modal-product-details {
+                flex-direction: column;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .newsletter-container {
+                bottom: 10px;
+                right: 10px;
+                left: 10px;
+                max-width: none;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2.3rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .modal-content {
+                margin: 20px auto;
+            }
+            
+            .specs-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">
+                    <div class="logo-mark">S</div>
+                    <div class="logo-text">Singular</div>
+                </a>
+                <ul class="nav-links">
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#how-it-works">How It Works</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <button class="cta-button" id="getStartedBtn">Get Started</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Import from China Without the Hassle</h1>
+                <p>Singular handles all aspects of importing products from China by air and sea, making international trade simple and accessible for your business.</p>
+                <div class="hero-buttons">
+                    <button class="cta-button" id="exploreProducts">Explore Products</button>
+                    <button class="secondary-button" id="heroGetStartedBtn">Get Started</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="floating-elements">
+            <div class="floating-box">
+                <i class="fas fa-shipping-fast"></i>
+                <div>Sea Freight Services</div>
+            </div>
+            <div class="floating-box">
+                <i class="fas fa-plane"></i>
+                <div>Air Shipping</div>
+            </div>
+            <div class="floating-box">
+                <i class="fas fa-boxes"></i>
+                <div>Product Sourcing</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Import Services</h2>
+                <p>We provide end-to-end solutions for importing products from China to your doorstep</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-search"></i>
+                    <h3>Product Sourcing</h3>
+                    <p>We find reliable suppliers and quality products that meet your specifications and business needs.</p>
+                </div>
+                
+                <div class="service-card">
+                    <i class="fas fa-plane-departure"></i>
+                    <h3>Air Freight</h3>
+                    <p>Fast and efficient air shipping for time-sensitive products with complete logistics handling.</p>
+                </div>
+                
+                <div class="service-card">
+                    <i class="fas fa-ship"></i>
+                    <h3>Sea Shipping</h3>
+                    <p>Cost-effective sea freight solutions for large volume imports with full customs clearance.</p>
+                </div>
+                
+                <div class="service-card">
+                    <i class="fas fa-file-contract"></i>
+                    <h3>Customs Clearance</h3>
+                    <p>We handle all documentation and regulatory requirements for smooth customs clearance.</p>
+                </div>
+                
+                <div class="service-card">
+                    <i class="fas fa-warehouse"></i>
+                    <h3>Warehousing</h3>
+                    <p>Secure storage solutions and inventory management before final delivery to your location.</p>
+                </div>
+                
+                <div class="service-card">
+                    <i class="fas fa-truck"></i>
+                    <h3>Last-Mile Delivery</h3>
+                    <p>Reliable transportation from port to your designated destination anywhere in the country.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products" id="products">
+        <div class="container">
+            <div class="section-title">
+                <h2>Popular Products</h2>
+                <p>Explore our wide range of products available for import via air and sea shipping</p>
+            </div>
+            
+            <div class="products-filter">
+                <button class="filter-button active" data-filter="all">All Products</button>
+                <button class="filter-button" data-filter="air">Air Shipping</button>
+                <button class="filter-button" data-filter="sea">Sea Shipping</button>
+            </div>
+            
+            <div class="products-grid">
+                <div class="product-card" data-type="air" data-product="electronics">
+                    <div class="product-image">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <div class="product-content">
+                        <h3>Electronics & Gadgets</h3>
+                        <p>Smartphones, tablets, accessories and cutting-edge tech gadgets</p>
+                        <span class="shipment-type air">Air Shipping</span>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-type="sea" data-product="furniture">
+                    <div class="product-image">
+                        <i class="fas fa-couch"></i>
+                    </div>
+                    <div class="product-content">
+                        <h3>Furniture</h3>
+                        <p>Modern furniture, office equipment and home decor items</p>
+                        <span class="shipment-type ship">Sea Shipping</span>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-type="air" data-product="fashion">
+                    <div class="product-image">
+                        <i class="fas fa-tshirt"></i>
+                    </div>
+                    <div class="product-content">
+                        <h3>Fashion & Apparel</h3>
+                        <p>Clothing, footwear and fashion accessories</p>
+                        <span class="shipment-type air">Air Shipping</span>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-type="sea" data-product="machinery">
+                    <div class="product-image">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <div class="product-content">
+                        <h3>Machinery & Tools</h3>
+                        <p>Industrial equipment, tools and manufacturing machinery</p>
+                        <span class="shipment-type ship">Sea Shipping</span>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-type="air" data-product="health">
+                    <div class="product-image">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <div class="product-content">
+                        <h3>Health Products</h3>
+                        <p>Supplements, fitness equipment and wellness products</p>
+                        <span class="shipment-type air">Air Shipping</span>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-type="sea" data-product="auto">
+                    <div class="product-image">
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <div class="product-content">
+                        <h3>Auto Parts</h3>
+                        <p>Automotive components and accessories</p>
+                        <span class="shipment-type ship">Sea Shipping</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Modals -->
+    <div class="modal" id="productModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalProductTitle">Product Details</h2>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="modal-product-details">
+                    <div class="modal-product-image" id="modalProductImage">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <div class="modal-product-info">
+                        <h3 id="modalProductName">Electronics & Gadgets</h3>
+                        <p id="modalProductDescription">Smartphones, tablets, accessories and cutting-edge tech gadgets. High-quality electronics sourced directly from manufacturers in China.</p>
+                        
+                        <div class="product-specs">
+                            <h4>Specifications</h4>
+                            <div class="specs-grid">
+                                <div class="spec-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>MOQ: 100 units</span>
+                                </div>
+                                <div class="spec-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Lead Time: 2-3 weeks</span>
+                                </div>
+                                <div class="spec-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Warranty: 1 year</span>
+                                </div>
+                                <div class="spec-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Custom branding available</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="shipment-options">
+                            <h4>Shipment Options</h4>
+                            <div class="specs-grid">
+                                <div class="spec-item">
+                                    <i class="fas fa-plane"></i>
+                                    <span>Air Shipping: 5-7 days</span>
+                                </div>
+                                <div class="spec-item">
+                                    <i class="fas fa-ship"></i>
+                                    <span>Sea Shipping: 30-45 days</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="related-products">
+                    <h3>Related Products</h3>
+                    <div class="related-grid">
+                        <div class="related-item">
+                            <i class="fas fa-headphones"></i>
+                            <h4>Audio Devices</h4>
+                        </div>
+                        <div class="related-item">
+                            <i class="fas fa-laptop"></i>
+                            <h4>Computers</h4>
+                        </div>
+                        <div class="related-item">
+                            <i class="fas fa-tablet-alt"></i>
+                            <h4>Tablets</h4>
+                        </div>
+                        <div class="related-item">
+                            <i class="fas fa-camera"></i>
+                            <h4>Camera Equipment</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quote Request Modal -->
+    <div class="modal" id="quoteModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Request a Quote</h2>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form class="quote-form" id="quoteForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" required placeholder="Your full name">
+                        </div>
+                        <div class="form-group">
+                            <label for="company">Company Name</label>
+                            <input type="text" id="company" name="company" placeholder="Your company name">
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required placeholder="your.email@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" required placeholder="+1 (555) 123-4567">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="productInterest">Product Interest</label>
+                        <select id="productInterest" name="productInterest">
+                            <option value="">Select a product category</option>
+                            <option value="electronics">Electronics & Gadgets</option>
+                            <option value="furniture">Furniture</option>
+                            <option value="fashion">Fashion & Apparel</option>
+                            <option value="machinery">Machinery & Tools</option>
+                            <option value="health">Health Products</option>
+                            <option value="auto">Auto Parts</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="shipmentMethod">Preferred Shipment Method</label>
+                        <select id="shipmentMethod" name="shipmentMethod">
+                            <option value="">Select shipment method</option>
+                            <option value="air">Air Shipping</option>
+                            <option value="sea">Sea Shipping</option>
+                            <option value="both">Both (depending on product)</option>
+                            <option value="unsure">Not sure</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Your Requirements</label>
+                        <textarea id="message" name="message" placeholder="Please describe your product requirements, quantity, and any other details..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-button">Submit Request</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- How It Works -->
+    <section class="how-it-works" id="how-it-works">
+        <div class="container">
+            <div class="section-title">
+                <h2>How It Works</h2>
+                <p>Our simple 4-step process for hassle-free importing from China</p>
+            </div>
+            
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-icon">
+                        <i class="fas fa-clipboard-list"></i>
+                    </div>
+                    <h3>1. Submit Request</h3>
+                    <p>Tell us what products you want to import and your requirements</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>2. Supplier Matching</h3>
+                    <p>We find verified suppliers and negotiate the best prices</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-icon">
+                        <i class="fas fa-shipping-fast"></i>
+                    </div>
+                    <h3>3. Shipping & Logistics</h3>
+                    <p>We handle all transportation and customs clearance</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-icon">
+                        <i class="fas fa-box-open"></i>
+                    </div>
+                    <h3>4. Delivery</h3>
+                    <p>Your products are delivered to your specified location</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Start Importing From China Today</h2>
+            <p>Join hundreds of businesses that have simplified their import process with our end-to-end solutions</p>
+            <button class="cta-button light" id="ctaGetStartedBtn">Get Started</button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Singular Import</h3>
+                    <p>Simplifying import processes from China for businesses worldwide with reliable air and sea shipping solutions.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="#">Product Sourcing</a></li>
+                        <li><a href="#">Air Freight</a></li>
+                        <li><a href="#">Sea Shipping</a></li>
+                        <li><a href="#">Customs Clearance</a></li>
+                        <li><a href="#">Warehousing</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Our Products</a></li>
+                        <li><a href="#">How It Works</a></li>
+                        <li><a href="#">Testimonials</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Import Street, Business District</li>
+                        <li><i class="fas fa-phone"></i> +1 (555) 123-4567</li>
+                        <li><i class="fas fa-envelope"></i> info@singularimport.com</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Singular Import. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Newsletter Component -->
+    <div class="newsletter-container hidden" id="newsletterContainer">
+        <div class="newsletter">
+            <span class="newsletter-close" id="newsletterClose">&times;</span>
+            <h3>Stay Updated on Import Opportunities</h3>
+            <p>Subscribe to our newsletter for the latest product sourcing insights and import trends from China.</p>
+            <form class="newsletter-form" id="newsletterForm">
+                <input type="email" placeholder="Your email address" required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Product data
+        const products = {
+            electronics: {
+                title: "Electronics & Gadgets",
+                icon: "fas fa-mobile-alt",
+                description: "Smartphones, tablets, accessories and cutting-edge tech gadgets. High-quality electronics sourced directly from manufacturers in China with warranty support and custom branding options.",
+                specs: [
+                    "MOQ: 100 units",
+                    "Lead Time: 2-3 weeks",
+                    "Warranty: 1 year",
+                    "Custom branding available"
+                ],
+                related: [
+                    { name: "Audio Devices", icon: "fas fa-headphones" },
+                    { name: "Computers", icon: "fas fa-laptop" },
+                    { name: "Tablets", icon: "fas fa-tablet-alt" },
+                    { name: "Camera Equipment", icon: "fas fa-camera" }
+                ]
+            },
+            furniture: {
+                title: "Furniture",
+                icon: "fas fa-couch",
+                description: "Modern furniture, office equipment and home decor items. We source high-quality furniture from reputable manufacturers in China, with options for custom designs and materials.",
+                specs: [
+                    "MOQ: 50 units",
+                    "Lead Time: 4-6 weeks",
+                    "Custom designs available",
+                    "Eco-friendly materials option"
+                ],
+                related: [
+                    { name: "Office Chairs", icon: "fas fa-chair" },
+                    { name: "Desks", icon: "fas fa-border-all" },
+                    { name: "Storage Solutions", icon: "fas fa-archive" },
+                    { name: "Home Decor", icon: "fas fa-home" }
+                ]
+            },
+            fashion: {
+                title: "Fashion & Apparel",
+                icon: "fas fa-tshirt",
+                description: "Clothing, footwear and fashion accessories. We work with ethical factories in China to produce high-quality apparel with options for custom designs, fabrics, and branding.",
+                specs: [
+                    "MOQ: 200 units",
+                    "Lead Time: 3-4 weeks",
+                    "Custom designs & patterns",
+                    "Multiple size options"
+                ],
+                related: [
+                    { name: "Footwear", icon: "fas fa-shoe-prints" },
+                    { name: "Accessories", icon: "fas fa-glasses" },
+                    { name: "Sportswear", icon: "fas fa-running" },
+                    { name: "Formal Wear", icon: "fas fa-tshirt" }
+                ]
+            },
+            machinery: {
+                title: "Machinery & Tools",
+                icon: "fas fa-tools",
+                description: "Industrial equipment, tools and manufacturing machinery. We source reliable machinery from certified suppliers in China, with options for technical support and training.",
+                specs: [
+                    "MOQ: 10 units",
+                    "Lead Time: 6-8 weeks",
+                    "Technical support included",
+                    "Training available"
+                ],
+                related: [
+                    { name: "Power Tools", icon: "fas fa-toolbox" },
+                    { name: "CNC Machines", icon: "fas fa-cogs" },
+                    { name: "3D Printers", icon: "fas fa-print" },
+                    { name: "Safety Equipment", icon: "fas fa-hard-hat" }
+                ]
+            },
+            health: {
+                title: "Health Products",
+                icon: "fas fa-heartbeat",
+                description: "Supplements, fitness equipment and wellness products. We source health products from certified manufacturers in China, ensuring quality and compliance with international standards.",
+                specs: [
+                    "MOQ: 100 units",
+                    "Lead Time: 3-4 weeks",
+                    "Quality certifications",
+                    "Custom formulations"
+                ],
+                related: [
+                    { name: "Fitness Equipment", icon: "fas fa-dumbbell" },
+                    { name: "Vitamins", icon: "fas fa-capsules" },
+                    { name: "Yoga Mats", icon: "fas fa-spa" },
+                    { name: "Massage Devices", icon: "fas fa-hand-holding-heart" }
+                ]
+            },
+            auto: {
+                title: "Auto Parts",
+                icon: "fas fa-car",
+                description: "Automotive components and accessories. We source high-quality auto parts from reputable manufacturers in China, with options for OEM and aftermarket specifications.",
+                specs: [
+                    "MOQ: 50 units",
+                    "Lead Time: 4-5 weeks",
+                    "OEM specifications",
+                    "Quality testing included"
+                ],
+                related: [
+                    { name: "Car Accessories", icon: "fas fa-car-side" },
+                    { name: "Engine Parts", icon: "fas fa-cog" },
+                    { name: "Lighting", icon: "fas fa-lightbulb" },
+                    { name: "Tools", icon: "fas fa-wrench" }
+                ]
+            }
+        };
+
+        // Newsletter functionality
+        const newsletterContainer = document.getElementById('newsletterContainer');
+        const newsletterClose = document.getElementById('newsletterClose');
+        const newsletterForm = document.getElementById('newsletterForm');
+        
+        // Show newsletter after a delay
+        setTimeout(() => {
+            // Check if user has already subscribed or closed the newsletter
+            if (!localStorage.getItem('newsletterClosed')) {
+                newsletterContainer.classList.remove('hidden');
+            }
+        }, 10000); // Show after 10 seconds
+        
+        // Close newsletter
+        newsletterClose.addEventListener('click', () => {
+            newsletterContainer.classList.add('hidden');
+            // Remember user's preference for 30 days
+            localStorage.setItem('newsletterClosed', 'true');
+            const expiryDate = new Date();
+            expiryDate.setDate(expiryDate.getDate() + 30);
+            localStorage.setItem('newsletterExpiry', expiryDate.getTime());
+        });
+        
+        // Handle newsletter form submission
+        newsletterForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = newsletterForm.querySelector('input[type="email"]').value;
+            
+            // Here you would typically send the email to your server
+            console.log('Newsletter subscription:', email);
+            
+            // Show success message
+            alert('Thank you for subscribing to our newsletter!');
+            newsletterContainer.classList.add('hidden');
+            
+            // Remember user's preference for 90 days
+            localStorage.setItem('newsletterSubscribed', 'true');
+            const expiryDate = new Date();
+            expiryDate.setDate(expiryDate.getDate() + 90);
+            localStorage.setItem('newsletterExpiry', expiryDate.getTime());
+            
+            // Reset form
+            newsletterForm.reset();
+        });
+        
+        // Check if newsletter preference has expired
+        function checkNewsletterPreference() {
+            const expiry = localStorage.getItem('newsletterExpiry');
+            if (expiry && new Date().getTime() > parseInt(expiry)) {
+                localStorage.removeItem('newsletterClosed');
+                localStorage.removeItem('newsletterSubscribed');
+                localStorage.removeItem('newsletterExpiry');
+            }
+        }
+        
+        // Run check on page load
+        checkNewsletterPreference();
+
+        // Animation for product cards
+        document.addEventListener('DOMContentLoaded', function() {
+            const productCards = document.querySelectorAll('.product-card');
+            
+            // Initially show all products
+            productCards.forEach(card => {
+                card.classList.add('visible');
+            });
+            
+            // Filter functionality
+            const filterButtons = document.querySelectorAll('.filter-button');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    button.classList.add('active');
+                    
+                    const filter = button.getAttribute('data-filter');
+                    
+                    productCards.forEach(card => {
+                        card.classList.remove('visible');
+                        
+                        setTimeout(() => {
+                            if (filter === 'all' || card.getAttribute('data-type') === filter) {
+                                card.classList.add('visible');
+                            }
+                        }, 300);
+                    });
+                });
+            });
+            
+            // Modal functionality
+            const productModal = document.getElementById('productModal');
+            const quoteModal = document.getElementById('quoteModal');
+            const closeModalButtons = document.querySelectorAll('.close-modal');
+            const productCardsAll = document.querySelectorAll('.product-card');
+            
+            // Get Started buttons
+            const getStartedBtn = document.getElementById('getStartedBtn');
+            const heroGetStartedBtn = document.getElementById('heroGetStartedBtn');
+            const ctaGetStartedBtn = document.getElementById('ctaGetStartedBtn');
+            
+            // Open product modal when any product card is clicked
+            productCardsAll.forEach(card => {
+                card.addEventListener('click', () => {
+                    const productType = card.getAttribute('data-product');
+                    const productData = products[productType];
+                    
+                    if (productData) {
+                        // Update modal content
+                        document.getElementById('modalProductTitle').textContent = productData.title;
+                        document.getElementById('modalProductName').textContent = productData.title;
+                        document.getElementById('modalProductDescription').textContent = productData.description;
+                        
+                        // Update product icon
+                        const productImage = document.getElementById('modalProductImage');
+                        productImage.innerHTML = `<i class="${productData.icon}"></i>`;
+                        
+                        // Update specifications
+                        const specsGrid = document.querySelector('.specs-grid');
+                        specsGrid.innerHTML = '';
+                        
+                        productData.specs.forEach(spec => {
+                            const specItem = document.createElement('div');
+                            specItem.className = 'spec-item';
+                            specItem.innerHTML = `<i class="fas fa-check-circle"></i><span>${spec}</span>`;
+                            specsGrid.appendChild(specItem);
+                        });
+                        
+                        // Update related products
+                        const relatedGrid = document.querySelector('.related-grid');
+                        relatedGrid.innerHTML = '';
+                        
+                        productData.related.forEach(item => {
+                            const relatedItem = document.createElement('div');
+                            relatedItem.className = 'related-item';
+                            relatedItem.innerHTML = `<i class="${item.icon}"></i><h4>${item.name}</h4>`;
+                            relatedGrid.appendChild(relatedItem);
+                        });
+                        
+                        // Show modal
+                        productModal.style.display = 'block';
+                        document.body.style.overflow = 'hidden';
+                    }
+                });
+            });
+            
+            // Open quote modal when Get Started buttons are clicked
+            [getStartedBtn, heroGetStartedBtn, ctaGetStartedBtn].forEach(button => {
+                button.addEventListener('click', () => {
+                    quoteModal.style.display = 'block';
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+            
+            // Close modal when X is clicked
+            closeModalButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    productModal.style.display = 'none';
+                    quoteModal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                });
+            });
+            
+            // Close modal when clicking outside the modal content
+            window.addEventListener('click', (event) => {
+                if (event.target === productModal) {
+                    productModal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+                if (event.target === quoteModal) {
+                    quoteModal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+            });
+            
+            // Form submission
+            const quoteForm = document.getElementById('quoteForm');
+            quoteForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Here you would typically send the form data to a server
+                // For this example, we'll just show an alert and close the modal
+                alert('Thank you for your inquiry! We will contact you shortly with a quotation.');
+                quoteModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+                quoteForm.reset();
+            });
+            
+            // Animate elements on scroll
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate');
+                    }
+                });
+            }, observerOptions);
+            
+            // Observe service cards and steps
+            document.querySelectorAll('.service-card, .step').forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>
