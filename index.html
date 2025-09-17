@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Singular - Import from China</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Singular - Import from China</title>
+
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #3a86ff;
@@ -85,6 +89,7 @@
         .nav-links {
             display: flex;
             list-style: none;
+            align-items: center;
         }
         
         .nav-links li {
@@ -115,6 +120,68 @@
         
         .cta-button:hover {
             background-color: var(--primary-dark);
+        }
+        
+        /* Language Switch */
+        .language-switch {
+            position: relative;
+            margin-left: 20px;
+        }
+        
+        .language-button {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            padding: 8px 15px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s;
+        }
+        
+        .language-button:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .language-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-top: 10px;
+            width: 150px;
+            display: none;
+            z-index: 1001;
+            overflow: hidden;
+        }
+        
+        .language-dropdown.show {
+            display: block;
+        }
+        
+        .language-option {
+            padding: 12px 15px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: background 0.3s;
+        }
+        
+        .language-option:hover {
+            background: #f1f5f9;
+        }
+        
+        .language-option.active {
+            background: #e0f2fe;
+            color: var(--primary);
+            font-weight: 600;
         }
         
         /* Hero Section */
@@ -903,6 +970,10 @@
             .specs-grid {
                 grid-template-columns: 1fr;
             }
+            
+            .language-dropdown {
+                right: -50px;
+            }
         }
     </style>
 </head>
@@ -920,6 +991,24 @@
                     <li><a href="#products">Products</a></li>
                     <li><a href="#how-it-works">How It Works</a></li>
                     <li><a href="#contact">Contact</a></li>
+                    <li class="language-switch">
+                        <button class="language-button" id="languageButton">
+                            <i class="fas fa-globe"></i>
+                            <span id="currentLanguage">English</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="language-dropdown" id="languageDropdown">
+                            <div class="language-option active" data-lang="en">
+                                <span>English</span>
+                            </div>
+                            <div class="language-option" data-lang="bn">
+                                <span>বাংলা</span>
+                            </div>
+                            <div class="language-option" data-lang="zh">
+                                <span>中文</span>
+                            </div>
+                        </div>
+                    </li>
                 </ul>
                 <button class="cta-button" id="getStartedBtn">Get Started</button>
             </nav>
@@ -930,11 +1019,11 @@
     <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <h1>Import from China Without the Hassle</h1>
-                <p>Singular handles all aspects of importing products from China by air and sea, making international trade simple and accessible for your business.</p>
+                <h1 data-translate="hero_title">Import from China Without the Hassle</h1>
+                <p data-translate="hero_description">Singular handles all aspects of importing products from China by air and sea, making international trade simple and accessible for your business.</p>
                 <div class="hero-buttons">
-                    <button class="cta-button" id="exploreProducts">Explore Products</button>
-                    <button class="secondary-button" id="heroGetStartedBtn">Get Started</button>
+                    <button class="cta-button" id="exploreProducts" data-translate="explore_products">Explore Products</button>
+                    <button class="secondary-button" id="heroGetStartedBtn" data-translate="get_started">Get Started</button>
                 </div>
             </div>
         </div>
@@ -942,15 +1031,15 @@
         <div class="floating-elements">
             <div class="floating-box">
                 <i class="fas fa-shipping-fast"></i>
-                <div>Sea Freight Services</div>
+                <div data-translate="sea_freight">Sea Freight Services</div>
             </div>
             <div class="floating-box">
                 <i class="fas fa-plane"></i>
-                <div>Air Shipping</div>
+                <div data-translate="air_shipping">Air Shipping</div>
             </div>
             <div class="floating-box">
                 <i class="fas fa-boxes"></i>
-                <div>Product Sourcing</div>
+                <div data-translate="product_sourcing">Product Sourcing</div>
             </div>
         </div>
     </section>
@@ -959,45 +1048,45 @@
     <section class="services" id="services">
         <div class="container">
             <div class="section-title">
-                <h2>Our Import Services</h2>
-                <p>We provide end-to-end solutions for importing products from China to your doorstep</p>
+                <h2 data-translate="services_title">Our Import Services</h2>
+                <p data-translate="services_description">We provide end-to-end solutions for importing products from China to your doorstep</p>
             </div>
             
             <div class="services-grid">
                 <div class="service-card">
                     <i class="fas fa-search"></i>
-                    <h3>Product Sourcing</h3>
-                    <p>We find reliable suppliers and quality products that meet your specifications and business needs.</p>
+                    <h3 data-translate="service1_title">Product Sourcing</h3>
+                    <p data-translate="service1_description">We find reliable suppliers and quality products that meet your specifications and business needs.</p>
                 </div>
                 
                 <div class="service-card">
                     <i class="fas fa-plane-departure"></i>
-                    <h3>Air Freight</h3>
-                    <p>Fast and efficient air shipping for time-sensitive products with complete logistics handling.</p>
+                    <h3 data-translate="service2_title">Air Freight</h3>
+                    <p data-translate="service2_description">Fast and efficient air shipping for time-sensitive products with complete logistics handling.</p>
                 </div>
                 
                 <div class="service-card">
                     <i class="fas fa-ship"></i>
-                    <h3>Sea Shipping</h3>
-                    <p>Cost-effective sea freight solutions for large volume imports with full customs clearance.</p>
+                    <h3 data-translate="service3_title">Sea Shipping</h3>
+                    <p data-translate="service3_description">Cost-effective sea freight solutions for large volume imports with full customs clearance.</p>
                 </div>
                 
                 <div class="service-card">
                     <i class="fas fa-file-contract"></i>
-                    <h3>Customs Clearance</h3>
-                    <p>We handle all documentation and regulatory requirements for smooth customs clearance.</p>
+                    <h3 data-translate="service4_title">Customs Clearance</h3>
+                    <p data-translate="service4_description">We handle all documentation and regulatory requirements for smooth customs clearance.</p>
                 </div>
                 
                 <div class="service-card">
                     <i class="fas fa-warehouse"></i>
-                    <h3>Warehousing</h3>
-                    <p>Secure storage solutions and inventory management before final delivery to your location.</p>
+                    <h3 data-translate="service5_title">Warehousing</h3>
+                    <p data-translate="service5_description">Secure storage solutions and inventory management before final delivery to your location.</p>
                 </div>
                 
                 <div class="service-card">
                     <i class="fas fa-truck"></i>
-                    <h3>Last-Mile Delivery</h3>
-                    <p>Reliable transportation from port to your designated destination anywhere in the country.</p>
+                    <h3 data-translate="service6_title">Last-Mile Delivery</h3>
+                    <p data-translate="service6_description">Reliable transportation from port to your designated destination anywhere in the country.</p>
                 </div>
             </div>
         </div>
@@ -1007,14 +1096,14 @@
     <section class="products" id="products">
         <div class="container">
             <div class="section-title">
-                <h2>Popular Products</h2>
-                <p>Explore our wide range of products available for import via air and sea shipping</p>
+                <h2 data-translate="products_title">Popular Products</h2>
+                <p data-translate="products_description">Explore our wide range of products available for import via air and sea shipping</p>
             </div>
             
             <div class="products-filter">
-                <button class="filter-button active" data-filter="all">All Products</button>
-                <button class="filter-button" data-filter="air">Air Shipping</button>
-                <button class="filter-button" data-filter="sea">Sea Shipping</button>
+                <button class="filter-button active" data-filter="all" data-translate="all_products">All Products</button>
+                <button class="filter-button" data-filter="air" data-translate="air_shipping_btn">Air Shipping</button>
+                <button class="filter-button" data-filter="sea" data-translate="sea_shipping_btn">Sea Shipping</button>
             </div>
             
             <div class="products-grid">
@@ -1023,9 +1112,9 @@
                         <i class="fas fa-mobile-alt"></i>
                     </div>
                     <div class="product-content">
-                        <h3>Electronics & Gadgets</h3>
-                        <p>Smartphones, tablets, accessories and cutting-edge tech gadgets</p>
-                        <span class="shipment-type air">Air Shipping</span>
+                        <h3 data-translate="product1_title">Electronics & Gadgets</h3>
+                        <p data-translate="product1_description">Smartphones, tablets, accessories and cutting-edge tech gadgets</p>
+                        <span class="shipment-type air" data-translate="air_shipping_tag">Air Shipping</span>
                     </div>
                 </div>
                 
@@ -1034,9 +1123,9 @@
                         <i class="fas fa-couch"></i>
                     </div>
                     <div class="product-content">
-                        <h3>Furniture</h3>
-                        <p>Modern furniture, office equipment and home decor items</p>
-                        <span class="shipment-type ship">Sea Shipping</span>
+                        <h3 data-translate="product2_title">Furniture</h3>
+                        <p data-translate="product2_description">Modern furniture, office equipment and home decor items</p>
+                        <span class="shipment-type ship" data-translate="sea_shipping_tag">Sea Shipping</span>
                     </div>
                 </div>
                 
@@ -1045,9 +1134,9 @@
                         <i class="fas fa-tshirt"></i>
                     </div>
                     <div class="product-content">
-                        <h3>Fashion & Apparel</h3>
-                        <p>Clothing, footwear and fashion accessories</p>
-                        <span class="shipment-type air">Air Shipping</span>
+                        <h3 data-translate="product3_title">Fashion & Apparel</h3>
+                        <p data-translate="product3_description">Clothing, footwear and fashion accessories</p>
+                        <span class="shipment-type air" data-translate="air_shipping_tag">Air Shipping</span>
                     </div>
                 </div>
                 
@@ -1056,9 +1145,9 @@
                         <i class="fas fa-tools"></i>
                     </div>
                     <div class="product-content">
-                        <h3>Machinery & Tools</h3>
-                        <p>Industrial equipment, tools and manufacturing machinery</p>
-                        <span class="shipment-type ship">Sea Shipping</span>
+                        <h3 data-translate="product4_title">Machinery & Tools</h3>
+                        <p data-translate="product4_description">Industrial equipment, tools and manufacturing machinery</p>
+                        <span class="shipment-type ship" data-translate="sea_shipping_tag">Sea Shipping</span>
                     </div>
                 </div>
                 
@@ -1067,9 +1156,9 @@
                         <i class="fas fa-heartbeat"></i>
                     </div>
                     <div class="product-content">
-                        <h3>Health Products</h3>
-                        <p>Supplements, fitness equipment and wellness products</p>
-                        <span class="shipment-type air">Air Shipping</span>
+                        <h3 data-translate="product5_title">Health Products</h3>
+                        <p data-translate="product5_description">Supplements, fitness equipment and wellness products</p>
+                        <span class="shipment-type air" data-translate="air_shipping_tag">Air Shipping</span>
                     </div>
                 </div>
                 
@@ -1078,9 +1167,9 @@
                         <i class="fas fa-car"></i>
                     </div>
                     <div class="product-content">
-                        <h3>Auto Parts</h3>
-                        <p>Automotive components and accessories</p>
-                        <span class="shipment-type ship">Sea Shipping</span>
+                        <h3 data-translate="product6_title">Auto Parts</h3>
+                        <p data-translate="product6_description">Automotive components and accessories</p>
+                        <span class="shipment-type ship" data-translate="sea_shipping_tag">Sea Shipping</span>
                     </div>
                 </div>
             </div>
@@ -1091,7 +1180,7 @@
     <div class="modal" id="productModal">
         <div class="modal-content">
             <div class="modal-header">
-                <h2 id="modalProductTitle">Product Details</h2>
+                <h2 id="modalProductTitle" data-translate="product_details">Product Details</h2>
                 <span class="close-modal">&times;</span>
             </div>
             <div class="modal-body">
@@ -1100,41 +1189,41 @@
                         <i class="fas fa-mobile-alt"></i>
                     </div>
                     <div class="modal-product-info">
-                        <h3 id="modalProductName">Electronics & Gadgets</h3>
-                        <p id="modalProductDescription">Smartphones, tablets, accessories and cutting-edge tech gadgets. High-quality electronics sourced directly from manufacturers in China.</p>
+                        <h3 id="modalProductName" data-translate="modal_product_name">Electronics & Gadgets</h3>
+                        <p id="modalProductDescription" data-translate="modal_product_description">Smartphones, tablets, accessories and cutting-edge tech gadgets. High-quality electronics sourced directly from manufacturers in China.</p>
                         
                         <div class="product-specs">
-                            <h4>Specifications</h4>
+                            <h4 data-translate="specifications">Specifications</h4>
                             <div class="specs-grid">
                                 <div class="spec-item">
                                     <i class="fas fa-check-circle"></i>
-                                    <span>MOQ: 100 units</span>
+                                    <span data-translate="spec1">MOQ: 100 units</span>
                                 </div>
                                 <div class="spec-item">
                                     <i class="fas fa-check-circle"></i>
-                                    <span>Lead Time: 2-3 weeks</span>
+                                    <span data-translate="spec2">Lead Time: 2-3 weeks</span>
                                 </div>
                                 <div class="spec-item">
                                     <i class="fas fa-check-circle"></i>
-                                    <span>Warranty: 1 year</span>
+                                    <span data-translate="spec3">Warranty: 1 year</span>
                                 </div>
                                 <div class="spec-item">
                                     <i class="fas fa-check-circle"></i>
-                                    <span>Custom branding available</span>
+                                    <span data-translate="spec4">Custom branding available</span>
                                 </div>
                             </div>
                         </div>
                         
                         <div class="shipment-options">
-                            <h4>Shipment Options</h4>
+                            <h4 data-translate="shipment_options">Shipment Options</h4>
                             <div class="specs-grid">
                                 <div class="spec-item">
                                     <i class="fas fa-plane"></i>
-                                    <span>Air Shipping: 5-7 days</span>
+                                    <span data-translate="air_option">Air Shipping: 5-7 days</span>
                                 </div>
                                 <div class="spec-item">
                                     <i class="fas fa-ship"></i>
-                                    <span>Sea Shipping: 30-45 days</span>
+                                    <span data-translate="sea_option">Sea Shipping: 30-45 days</span>
                                 </div>
                             </div>
                         </div>
@@ -1142,23 +1231,23 @@
                 </div>
                 
                 <div class="related-products">
-                    <h3>Related Products</h3>
+                    <h3 data-translate="related_products">Related Products</h3>
                     <div class="related-grid">
                         <div class="related-item">
                             <i class="fas fa-headphones"></i>
-                            <h4>Audio Devices</h4>
+                            <h4 data-translate="related1">Audio Devices</h4>
                         </div>
                         <div class="related-item">
                             <i class="fas fa-laptop"></i>
-                            <h4>Computers</h4>
+                            <h4 data-translate="related2">Computers</h4>
                         </div>
                         <div class="related-item">
                             <i class="fas fa-tablet-alt"></i>
-                            <h4>Tablets</h4>
+                            <h4 data-translate="related3">Tablets</h4>
                         </div>
                         <div class="related-item">
                             <i class="fas fa-camera"></i>
-                            <h4>Camera Equipment</h4>
+                            <h4 data-translate="related4">Camera Equipment</h4>
                         </div>
                     </div>
                 </div>
@@ -1170,64 +1259,64 @@
     <div class="modal" id="quoteModal">
         <div class="modal-content">
             <div class="modal-header">
-                <h2>Request a Quote</h2>
+                <h2 data-translate="request_quote">Request a Quote</h2>
                 <span class="close-modal">&times;</span>
             </div>
             <div class="modal-body">
                 <form class="quote-form" id="quoteForm">
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="name">Full Name</label>
-                            <input type="text" id="name" name="name" required placeholder="Your full name">
+                            <label for="name" data-translate="full_name">Full Name</label>
+                            <input type="text" id="name" name="name" required data-translate-placeholder="name_placeholder" placeholder="Your full name">
                         </div>
                         <div class="form-group">
-                            <label for="company">Company Name</label>
-                            <input type="text" id="company" name="company" placeholder="Your company name">
+                            <label for="company" data-translate="company_name">Company Name</label>
+                            <input type="text" id="company" name="company" data-translate-placeholder="company_placeholder" placeholder="Your company name">
                         </div>
                     </div>
                     
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" name="email" required placeholder="your.email@example.com">
+                            <label for="email" data-translate="email_address">Email Address</label>
+                            <input type="email" id="email" name="email" required data-translate-placeholder="email_placeholder" placeholder="your.email@example.com">
                         </div>
                         <div class="form-group">
-                            <label for="phone">Phone Number</label>
-                            <input type="tel" id="phone" name="phone" required placeholder="+1 (555) 123-4567">
+                            <label for="phone" data-translate="phone_number">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" required data-translate-placeholder="phone_placeholder" placeholder="Enter Your Whats App Number">
                         </div>
                     </div>
                     
                     <div class="form-group">
-                        <label for="productInterest">Product Interest</label>
+                        <label for="productInterest" data-translate="product_interest">Product Interest</label>
                         <select id="productInterest" name="productInterest">
-                            <option value="">Select a product category</option>
-                            <option value="electronics">Electronics & Gadgets</option>
-                            <option value="furniture">Furniture</option>
-                            <option value="fashion">Fashion & Apparel</option>
-                            <option value="machinery">Machinery & Tools</option>
-                            <option value="health">Health Products</option>
-                            <option value="auto">Auto Parts</option>
-                            <option value="other">Other</option>
+                            <option value="" data-translate="select_category">Select a product category</option>
+                            <option value="electronics" data-translate="electronics_option">Electronics & Gadgets</option>
+                            <option value="furniture" data-translate="furniture_option">Furniture</option>
+                            <option value="fashion" data-translate="fashion_option">Fashion & Apparel</option>
+                            <option value="machinery" data-translate="machinery_option">Machinery & Tools</option>
+                            <option value="health" data-translate="health_option">Health Products</option>
+                            <option value="auto" data-translate="auto_option">Auto Parts</option>
+                            <option value="other" data-translate="other_option">Other</option>
                         </select>
                     </div>
                     
                     <div class="form-group">
-                        <label for="shipmentMethod">Preferred Shipment Method</label>
+                        <label for="shipmentMethod" data-translate="shipment_method">Preferred Shipment Method</label>
                         <select id="shipmentMethod" name="shipmentMethod">
-                            <option value="">Select shipment method</option>
-                            <option value="air">Air Shipping</option>
-                            <option value="sea">Sea Shipping</option>
-                            <option value="both">Both (depending on product)</option>
-                            <option value="unsure">Not sure</option>
+                            <option value="" data-translate="select_shipment">Select shipment method</option>
+                            <option value="air" data-translate="air_option_form">Air Shipping</option>
+                            <option value="sea" data-translate="sea_option_form">Sea Shipping</option>
+                            <option value="both" data-translate="both_option">Both (depending on product)</option>
+                            <option value="unsure" data-translate="unsure_option">Not sure</option>
                         </select>
                     </div>
                     
                     <div class="form-group">
-                        <label for="message">Your Requirements</label>
-                        <textarea id="message" name="message" placeholder="Please describe your product requirements, quantity, and any other details..."></textarea>
+                        <label for="message" data-translate="your_requirements">Your Requirements</label>
+                        <textarea id="message" name="message" data-translate-placeholder="requirements_placeholder" placeholder="Please describe your product requirements, quantity, and any other details..."></textarea>
                     </div>
                     
-                    <button type="submit" class="submit-button">Submit Request</button>
+                    <button type="submit" class="submit-button" data-translate="submit_request">Submit Request</button>
                 </form>
             </div>
         </div>
@@ -1237,8 +1326,8 @@
     <section class="how-it-works" id="how-it-works">
         <div class="container">
             <div class="section-title">
-                <h2>How It Works</h2>
-                <p>Our simple 4-step process for hassle-free importing from China</p>
+                <h2 data-translate="how_it_works_title">How It Works</h2>
+                <p data-translate="how_it_works_description">Our simple 4-step process for hassle-free importing from China</p>
             </div>
             
             <div class="process-steps">
@@ -1246,32 +1335,32 @@
                     <div class="step-icon">
                         <i class="fas fa-clipboard-list"></i>
                     </div>
-                    <h3>1. Submit Request</h3>
-                    <p>Tell us what products you want to import and your requirements</p>
+                    <h3 data-translate="step1_title">1. Submit Request</h3>
+                    <p data-translate="step1_description">Tell us what products you want to import and your requirements</p>
                 </div>
                 
                 <div class="step">
                     <div class="step-icon">
                         <i class="fas fa-handshake"></i>
                     </div>
-                    <h3>2. Supplier Matching</h3>
-                    <p>We find verified suppliers and negotiate the best prices</p>
+                    <h3 data-translate="step2_title">2. Supplier Matching</h3>
+                    <p data-translate="step2_description">We find verified suppliers and negotiate the best prices</p>
                 </div>
                 
                 <div class="step">
                     <div class="step-icon">
                         <i class="fas fa-shipping-fast"></i>
                     </div>
-                    <h3>3. Shipping & Logistics</h3>
-                    <p>We handle all transportation and customs clearance</p>
+                    <h3 data-translate="step3_title">3. Shipping & Logistics</h3>
+                    <p data-translate="step3_description">We handle all transportation and customs clearance</p>
                 </div>
                 
                 <div class="step">
                     <div class="step-icon">
                         <i class="fas fa-box-open"></i>
                     </div>
-                    <h3>4. Delivery</h3>
-                    <p>Your products are delivered to your specified location</p>
+                    <h3 data-translate="step4_title">4. Delivery</h3>
+                    <p data-translate="step4_description">Your products are delivered to your specified location</p>
                 </div>
             </div>
         </div>
@@ -1280,9 +1369,9 @@
     <!-- CTA Section -->
     <section class="cta-section">
         <div class="container">
-            <h2>Start Importing From China Today</h2>
-            <p>Join hundreds of businesses that have simplified their import process with our end-to-end solutions</p>
-            <button class="cta-button light" id="ctaGetStartedBtn">Get Started</button>
+            <h2 data-translate="cta_title">Start Importing From China Today</h2>
+            <p data-translate="cta_description">Join hundreds of businesses that have simplified their import process with our end-to-end solutions</p>
+            <button class="cta-button light" id="ctaGetStartedBtn" data-translate="get_started">Get Started</button>
         </div>
     </section>
 
@@ -1291,8 +1380,8 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-column">
-                    <h3>Singular Import</h3>
-                    <p>Simplifying import processes from China for businesses worldwide with reliable air and sea shipping solutions.</p>
+                    <h3 data-translate="footer_title">Singular Import</h3>
+                    <p data-translate="footer_description">Simplifying import processes from China for businesses worldwide with reliable air and sea shipping solutions.</p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
@@ -1302,31 +1391,31 @@
                 </div>
                 
                 <div class="footer-column">
-                    <h3>Services</h3>
+                    <h3 data-translate="services_title">Services</h3>
                     <ul>
-                        <li><a href="#">Product Sourcing</a></li>
-                        <li><a href="#">Air Freight</a></li>
-                        <li><a href="#">Sea Shipping</a></li>
-                        <li><a href="#">Customs Clearance</a></li>
-                        <li><a href="#">Warehousing</a></li>
+                        <li><a href="#" data-translate="service1_title">Product Sourcing</a></li>
+                        <li><a href="#" data-translate="service2_title">Air Freight</a></li>
+                        <li><a href="#" data-translate="service3_title">Sea Shipping</a></li>
+                        <li><a href="#" data-translate="service4_title">Customs Clearance</a></li>
+                        <li><a href="#" data-translate="service5_title">Warehousing</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-column">
-                    <h3>Quick Links</h3>
+                    <h3 data-translate="quick_links">Quick Links</h3>
                     <ul>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Our Products</a></li>
-                        <li><a href="#">How It Works</a></li>
-                        <li><a href="#">Testimonials</a></li>
-                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#" data-translate="about_us">About Us</a></li>
+                        <li><a href="#" data-translate="our_products">Our Products</a></li>
+                        <li><a href="#" data-translate="how_it_works_link">How It Works</a></li>
+                        <li><a href="#" data-translate="testimonials">Testimonials</a></li>
+                        <li><a href="#" data-translate="contact_us">Contact Us</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-column">
-                    <h3>Contact Info</h3>
+                    <h3 data-translate="contact_info">Contact Info</h3>
                     <ul>
-                        <li><i class="fas fa-map-marker-alt"></i> 123 Import Street, Business District</li>
+                        <li><i class="fas fa-map-marker-alt"></i> <span data-translate="address">123 Import Street, Business District</span></li>
                         <li><i class="fas fa-phone"></i> +1 (555) 123-4567</li>
                         <li><i class="fas fa-envelope"></i> info@singularimport.com</li>
                     </ul>
@@ -1334,7 +1423,7 @@
             </div>
             
             <div class="copyright">
-                <p>&copy; 2023 Singular Import. All rights reserved.</p>
+                <p>&copy; 2023 Singular Import. <span data-translate="rights_reserved">All rights reserved.</span></p>
             </div>
         </div>
     </footer>
@@ -1343,16 +1432,428 @@
     <div class="newsletter-container hidden" id="newsletterContainer">
         <div class="newsletter">
             <span class="newsletter-close" id="newsletterClose">&times;</span>
-            <h3>Stay Updated on Import Opportunities</h3>
-            <p>Subscribe to our newsletter for the latest product sourcing insights and import trends from China.</p>
+            <h3 data-translate="newsletter_title">Stay Updated on Import Opportunities</h3>
+            <p data-translate="newsletter_description">Subscribe to our newsletter for the latest product sourcing insights and import trends from China.</p>
             <form class="newsletter-form" id="newsletterForm">
-                <input type="email" placeholder="Your email address" required>
-                <button type="submit">Subscribe</button>
+                <input type="email" data-translate-placeholder="email_newsletter_placeholder" placeholder="Your email address" required>
+                <button type="submit" data-translate="subscribe">Subscribe</button>
             </form>
         </div>
     </div>
 
     <script>
+        // Language translations
+        const translations = {
+            en: {
+                // Navigation
+                "services": "Services",
+                "products": "Products",
+                "how_it_works": "How It Works",
+                "contact": "Contact",
+                "current_language": "English",
+                
+                // Hero Section
+                "hero_title": "Import from China Without the Hassle",
+                "hero_description": "Singular handles all aspects of importing products from China by air and sea, making international trade simple and accessible for your business.",
+                "explore_products": "Explore Products",
+                "get_started": "Get Started",
+                "sea_freight": "Sea Freight Services",
+                "air_shipping": "Air Shipping",
+                "product_sourcing": "Product Sourcing",
+                
+                // Services Section
+                "services_title": "Our Import Services",
+                "services_description": "We provide end-to-end solutions for importing products from China to your doorstep",
+                "service1_title": "Product Sourcing",
+                "service1_description": "We find reliable suppliers and quality products that meet your specifications and business needs.",
+                "service2_title": "Air Freight",
+                "service2_description": "Fast and efficient air shipping for time-sensitive products with complete logistics handling.",
+                "service3_title": "Sea Shipping",
+                "service3_description": "Cost-effective sea freight solutions for large volume imports with full customs clearance.",
+                "service4_title": "Customs Clearance",
+                "service4_description": "We handle all documentation and regulatory requirements for smooth customs clearance.",
+                "service5_title": "Warehousing",
+                "service5_description": "Secure storage solutions and inventory management before final delivery to your location.",
+                "service6_title": "Last-Mile Delivery",
+                "service6_description": "Reliable transportation from port to your designated destination anywhere in the country.",
+                
+                // Products Section
+                "products_title": "Popular Products",
+                "products_description": "Explore our wide range of products available for import via air and sea shipping",
+                "all_products": "All Products",
+                "air_shipping_btn": "Air Shipping",
+                "sea_shipping_btn": "Sea Shipping",
+                "product1_title": "Electronics & Gadgets",
+                "product1_description": "Smartphones, tablets, accessories and cutting-edge tech gadgets",
+                "product2_title": "Furniture",
+                "product2_description": "Modern furniture, office equipment and home decor items",
+                "product3_title": "Fashion & Apparel",
+                "product3_description": "Clothing, footwear and fashion accessories",
+                "product4_title": "Machinery & Tools",
+                "product4_description": "Industrial equipment, tools and manufacturing machinery",
+                "product5_title": "Health Products",
+                "product5_description": "Supplements, fitness equipment and wellness products",
+                "product6_title": "Auto Parts",
+                "product6_description": "Automotive components and accessories",
+                "air_shipping_tag": "Air Shipping",
+                "sea_shipping_tag": "Sea Shipping",
+                
+                // Product Modal
+                "product_details": "Product Details",
+                "modal_product_name": "Electronics & Gadgets",
+                "modal_product_description": "Smartphones, tablets, accessories and cutting-edge tech gadgets. High-quality electronics sourced directly from manufacturers in China.",
+                "specifications": "Specifications",
+                "spec1": "MOQ: 100 units",
+                "spec2": "Lead Time: 2-3 weeks",
+                "spec3": "Warranty: 1 year",
+                "spec4": "Custom branding available",
+                "shipment_options": "Shipment Options",
+                "air_option": "Air Shipping: 5-7 days",
+                "sea_option": "Sea Shipping: 30-45 days",
+                "related_products": "Related Products",
+                "related1": "Audio Devices",
+                "related2": "Computers",
+                "related3": "Tablets",
+                "related4": "Camera Equipment",
+                
+                // Quote Modal
+                "request_quote": "Request a Quote",
+                "full_name": "Full Name",
+                "name_placeholder": "Your full name",
+                "company_name": "Company Name",
+                "company_placeholder": "Your company name",
+                "email_address": "Email Address",
+                "email_placeholder": "your.email@example.com",
+                "phone_number": "Phone Number",
+                "phone_placeholder": "Enter Your Whats App Number",
+                "product_interest": "Product Interest",
+                "select_category": "Select a product category",
+                "electronics_option": "Electronics & Gadgets",
+                "furniture_option": "Furniture",
+                "fashion_option": "Fashion & Apparel",
+                "machinery_option": "Machinery & Tools",
+                "health_option": "Health Products",
+                "auto_option": "Auto Parts",
+                "other_option": "Other",
+                "shipment_method": "Preferred Shipment Method",
+                "select_shipment": "Select shipment method",
+                "air_option_form": "Air Shipping",
+                "sea_option_form": "Sea Shipping",
+                "both_option": "Both (depending on product)",
+                "unsure_option": "Not sure",
+                "your_requirements": "Your Requirements",
+                "requirements_placeholder": "Please describe your product requirements, quantity, and any other details...",
+                "submit_request": "Submit Request",
+                
+                // How It Works
+                "how_it_works_title": "How It Works",
+                "how_it_works_description": "Our simple 4-step process for hassle-free importing from China",
+                "step1_title": "1. Submit Request",
+                "step1_description": "Tell us what products you want to import and your requirements",
+                "step2_title": "2. Supplier Matching",
+                "step2_description": "We find verified suppliers and negotiate the best prices",
+                "step3_title": "3. Shipping & Logistics",
+                "step3_description": "We handle all transportation and customs clearance",
+                "step4_title": "4. Delivery",
+                "step4_description": "Your products are delivered to your specified location",
+                
+                // CTA Section
+                "cta_title": "Start Importing From China Today",
+                "cta_description": "Join hundreds of businesses that have simplified their import process with our end-to-end solutions",
+                
+                // Footer
+                "footer_title": "Singular Import",
+                "footer_description": "Simplifying import processes from China for businesses worldwide with reliable air and sea shipping solutions.",
+                "quick_links": "Quick Links",
+                "about_us": "About Us",
+                "our_products": "Our Products",
+                "how_it_works_link": "How It Works",
+                "testimonials": "Testimonials",
+                "contact_us": "Contact Us",
+                "contact_info": "Contact Info",
+                "address": "123 Import Street, Business District",
+                "rights_reserved": "All rights reserved.",
+                
+                // Newsletter
+                "newsletter_title": "Stay Updated on Import Opportunities",
+                "newsletter_description": "Subscribe to our newsletter for the latest product sourcing insights and import trends from China.",
+                "email_newsletter_placeholder": "Your email address",
+                "subscribe": "Subscribe"
+            },
+            bn: {
+                // Navigation
+                "services": "সেবাসমূহ",
+                "products": "পণ্য",
+                "how_it_works": "কিভাবে কাজ করে",
+                "contact": "যোগাযোগ",
+                "current_language": "বাংলা",
+                
+                // Hero Section
+                "hero_title": "চীন থেকে ঝামেলামুক্ত আমদানি",
+                "hero_description": "সিঙ্গুলার বিমান ও সমুদ্রপথে চীন থেকে পণ্য আমদানির সকল দিক handling করে, আপনার ব্যবসার জন্য আন্তর্জাতিক বাণিজ্য সহজ এবং অ্যাক্সেসযোগ্য করে তোলে।",
+                "explore_products": "পণ্য এক্সপ্লোর করুন",
+                "get_started": "শুরু করুন",
+                "sea_freight": "সামুদ্রিক মাল পরিবহন সেবা",
+                "air_shipping": "এয়ার শিপিং",
+                "product_sourcing": "পণ্য সোর্সিং",
+                
+                // Services Section
+                "services_title": "আমাদের আমদানি সেবাসমূহ",
+                "services_description": "আমরা চীন থেকে আপনার দোরগোড়ায় পণ্য আমদানির জন্য এন্ড-টু-এন্ড সমাধান প্রদান করি",
+                "service1_title": "পণ্য সোর্সিং",
+                "service1_description": "আমরা নির্ভরযোগ্য সরবরাহকারী এবং গুণগত পণ্য খুঁজে পাই যা আপনার specifications এবং ব্যবসার needs পূরণ করে।",
+                "service2_title": "এয়ার ফ্রেইট",
+                "service2_description": "সময় সংবেদনশীল পণ্যগুলির জন্য দ্রুত এবং দক্ষ এয়ার শিপিং সম্পূর্ণ logistics handling সহ।",
+                "service3_title": "সি শিপিং",
+                "service3_description": "বড় ভলিউম আমদানির জন্য cost-effective sea freight solutions সম্পূর্ণ customs clearance সহ।",
+                "service4_title": "কাস্টমস ক্লিয়ারেন্স",
+                "service4_description": "আমরা মসৃণ কাস্টমস ক্লিয়ারেন্সের জন্য সমস্ত ডকুমেন্টেশন এবং নিয়ন্ত্রক প্রয়োজনীয়তা handling করি।",
+                "service5_title": "গুদামজাতকরণ",
+                "service5_description": "আপনার অবস্থানে চূড়ান্ত ডেলিভারির আগে নিরাপদ স্টোরেজ সমাধান এবং ইনভেন্টরি ম্যানেজমেন্ট।",
+                "service6_title": "লাস্ট-মাইল ডেলিভারি",
+                "service6_description": "বন্দর থেকে দেশের যে কোনো স্থানে আপনার মনোনীত গন্তব্যে নির্ভরযোগ্য পরিবহন।",
+                
+                // Products Section
+                "products_title": "জনপ্রিয় পণ্য",
+                "products_description": "এয়ার এবং সি শিপিং এর মাধ্যমে আমদানির জন্য আমাদের বিস্তৃত পরিসরের পণ্য এক্সপ্লোর করুন",
+                "all_products": "সমস্ত পণ্য",
+                "air_shipping_btn": "এয়ার শিপিং",
+                "sea_shipping_btn": "সি শিপিং",
+                "product1_title": "ইলেকট্রনিক্স ও গ্যাজেটস",
+                "product1_description": "স্মার্টফোন, ট্যাবলেট, Accessories এবং cutting-edge tech gadgets",
+                "product2_title": "ফার্নিচার",
+                "product2_description": "আধুনিক ফার্নিচার, অফিসের সরঞ্জাম এবং হোম ডেকোর আইটেম",
+                "product3_title": "ফ্যাশন ও পোশাক",
+                "product3_description": "পোশাক, ফুটওয়্যার এবং ফ্যাশন Accessories",
+                "product4_title": "মেশিনারি ও টুলস",
+                "product4_description": "শিল্প সরঞ্জাম, টুলস এবং উত্পাদন machinery",
+                "product5_title": "স্বাস্থ্য পণ্য",
+                "product5_description": "সাপ্লিমেন্টস, ফিটনেস equipment এবং wellness পণ্য",
+                "product6_title": "অটো পার্টস",
+                "product6_description": "অটোমোটিভ components এবং Accessories",
+                "air_shipping_tag": "এয়ার শিপিং",
+                "sea_shipping_tag": "সি শিপিং",
+                
+                // Product Modal
+                "product_details": "পণ্যের বিবরণ",
+                "modal_product_name": "ইলেকট্রনিক্স ও গ্যাজেটস",
+                "modal_product_description": "স্মার্টফোন, ট্যাবলেট, Accessories এবং cutting-edge tech gadgets। চীনের manufacturers থেকে সরাসরি sourced উচ্চ-গুণমানের ইলেকট্রনিক্স warranty support এবং custom branding options সহ।",
+                "specifications": "নির্দিষ্টকরণ",
+                "spec1": "ন্যূনতম অর্ডার: 100 ইউনিট",
+                "spec2": "লিড টাইম: 2-3 সপ্তাহ",
+                "spec3": "ওয়ারেন্টি: 1 বছর",
+                "spec4": "কাস্টম ব্র্যান্ডিং উপলব্ধ",
+                "shipment_options": "শিপমেন্ট বিকল্প",
+                "air_option": "এয়ার শিপিং: 5-7 দিন",
+                "sea_option": "সি শিপিং: 30-45 দিন",
+                "related_products": "সম্পর্কিত পণ্য",
+                "related1": "অডিও ডিভাইস",
+                "related2": "কম্পিউটার",
+                "related3": "ট্যাবলেট",
+                "related4": "ক্যামেরা equipment",
+                
+                // Quote Modal
+                "request_quote": "একটি উদ্ধৃতি request করুন",
+                "full_name": "পুরো নাম",
+                "name_placeholder": "আপনার পুরো নাম",
+                "company_name": "কোম্পানির নাম",
+                "company_placeholder": "আপনার কোম্পানির নাম",
+                "email_address": "ইমেইল ঠিকানা",
+                "email_placeholder": "your.email@example.com",
+                "phone_number": "ফোন নম্বর",
+                "phone_placeholder": "+1 (555) 123-4567",
+                "product_interest": "পণ্যের আগ্রহ",
+                "select_category": "একটি পণ্য বিভাগ নির্বাচন করুন",
+                "electronics_option": "ইলেকট্রনিক্স ও গ্যাজেটস",
+                "furniture_option": "ফার্নিচার",
+                "fashion_option": "ফ্যাশন ও পোশাক",
+                "machinery_option": "মেশিনারি ও টুলস",
+                "health_option": "স্বাস্থ্য পণ্য",
+                "auto_option": "অটো পার্টস",
+                "other_option": "অন্যান্য",
+                "shipment_method": "পছন্দের শিপমেন্ট পদ্ধতি",
+                "select_shipment": "শিপমেন্ট পদ্ধতি নির্বাচন করুন",
+                "air_option_form": "এয়ার শিপিং",
+                "sea_option_form": "সি শিপিং",
+                "both_option": "উভয় (পণ্যের উপর নির্ভর করে)",
+                "unsure_option": "নিশ্চিত নয়",
+                "your_requirements": "আপনার requirements",
+                "requirements_placeholder": "দয়া করে আপনার পণ্যের requirements, quantity এবং অন্য কোন details বর্ণনা করুন...",
+                "submit_request": "request জমা দিন",
+                
+                // How It Works
+                "how_it_works_title": "কিভাবে কাজ করে",
+                "how_it_works_description": "চীন থেকে ঝামেলামুক্ত আমদানির জন্য আমাদের সহজ 4-ধাপের প্রক্রিয়া",
+                "step1_title": "1. request জমা দিন",
+                "step1_description": "আমাদের বলুন আপনি কী পণ্য আমদানি করতে চান এবং আপনার requirements কী",
+                "step2_title": "2. সরবরাহকারী matching",
+                "step2_description": "আমরা verified suppliers খুঁজে পাই এবং সেরা দাম negotiate করি",
+                "step3_title": "3. শিপিং ও logistics",
+                "step3_description": "আমরা সমস্ত transportation এবং customs clearance handling করি",
+                "step4_title": "4. ডেলিভারি",
+                "step4_description": "আপনার পণ্য আপনার নির্দিষ্ট location এ delivered হয়",
+                
+                // CTA Section
+                "cta_title": "আজই চীন থেকে আমদানি শুরু করুন",
+                "cta_description": "আমাদের end-to-end solutions দিয়ে তাদের আমদানি প্রক্রিয়া সরলীকৃত করেছেন এমন শত শত ব্যবসায়ীর সাথে যোগ দিন",
+                
+                // Footer
+                "footer_title": "সিঙ্গুলার ইম্পোর্ট",
+                "footer_description": "বিশ্বব্যাপী ব্যবসার জন্য চীন থেকে আমদানি প্রক্রিয়া সরলীকরণ reliable air and sea shipping solutions সহ।",
+                "quick_links": "দ্রুত লিংক",
+                "about_us": "আমাদের সম্পর্কে",
+                "our_products": "আমাদের পণ্য",
+                "how_it_works_link": "কিভাবে কাজ করে",
+                "testimonials": "সাক্ষ্যগুলো",
+                "contact_us": "যোগাযোগ করুন",
+                "contact_info": "যোগাযোগের তথ্য",
+                "address": "১২৩ আমদানি স্ট্রিট, বিজনেস ডিস্ট্রিক্ট",
+                "rights_reserved": "সমস্ত অধিকার সংরক্ষিত।",
+                
+                // Newsletter
+                "newsletter_title": "আমদানি opportunities সম্পর্কে updated থাকুন",
+                "newsletter_description": "চীন থেকে সর্বশেষ পণ্য sourcing insights এবং আমদানি trends জন্য আমাদের newsletter সাবস্ক্রাইব করুন।",
+                "email_newsletter_placeholder": "আপনার ইমেইল ঠিকানা",
+                "subscribe": "সাবস্ক্রাইব"
+            },
+            zh: {
+                // Navigation
+                "services": "服务",
+                "products": "产品",
+                "how_it_works": "运作方式",
+                "contact": "联系我们",
+                "current_language": "中文",
+                
+                // Hero Section
+                "hero_title": "从中国无忧进口",
+                "hero_description": "Singular处理通过空运和海运从中国进口产品的所有方面，使国际贸易对您的业务变得简单易行。",
+                "explore_products": "探索产品",
+                "get_started": "开始使用",
+                "sea_freight": "海运服务",
+                "air_shipping": "空运",
+                "product_sourcing": "产品采购",
+                
+                // Services Section
+                "services_title": "我们的进口服务",
+                "services_description": "我们提供从中国到您门口的端到端产品进口解决方案",
+                "service1_title": "产品采购",
+                "service1_description": "我们寻找可靠的供应商和符合您规格和业务需求的高质量产品。",
+                "service2_title": "空运",
+                "service2_description": "为时间敏感的产品提供快速高效的空运服务，并提供完整的物流处理。",
+                "service3_title": "海运",
+                "service3_description": "为大批量进口提供具有成本效益的海运解决方案，并提供完整的清关服务。",
+                "service4_title": "清关",
+                "service4_description": "我们处理所有文件和监管要求，确保顺利清关。",
+                "service5_title": "仓储",
+                "service5_description": "在最终交付到您的位置之前，提供安全的存储解决方案和库存管理。",
+                "service6_title": "最后一英里交付",
+                "service6_description": "从港口到您指定目的地的可靠运输，覆盖全国任何地方。",
+                
+                // Products Section
+                "products_title": "热门产品",
+                "products_description": "探索我们通过空运和海运进口的各种产品",
+                "all_products": "所有产品",
+                "air_shipping_btn": "空运",
+                "sea_shipping_btn": "海运",
+                "product1_title": "电子产品与配件",
+                "product1_description": "智能手机、平板电脑、配件和尖端科技小工具",
+                "product2_title": "家具",
+                "product2_description": "现代家具、办公设备和家居装饰物品",
+                "product3_title": "时尚与服装",
+                "product3_description": "服装、鞋类和时尚配饰",
+                "product4_title": "机械与工具",
+                "product4_description": "工业设备、工具和制造机械",
+                "product5_title": "健康产品",
+                "product5_description": "补品、健身设备和健康产品",
+                "product6_title": "汽车零件",
+                "product6_description": "汽车零部件和配件",
+                "air_shipping_tag": "空运",
+                "sea_shipping_tag": "海运",
+                
+                // Product Modal
+                "product_details": "产品详情",
+                "modal_product_name": "电子产品与配件",
+                "modal_product_description": "智能手机、平板电脑、配件和尖端科技小工具。直接从中国制造商采购的高质量电子产品，提供保修支持和定制品牌选项。",
+                "specifications": "规格",
+                "spec1": "最小起订量：100件",
+                "spec2": "交货时间：2-3周",
+                "spec3": "保修：1年",
+                "spec4": "可提供定制品牌",
+                "shipment_options": "运输选项",
+                "air_option": "空运：5-7天",
+                "sea_option": "海运：30-45天",
+                "related_products": "相关产品",
+                "related1": "音频设备",
+                "related2": "电脑",
+                "related3": "平板电脑",
+                "related4": "摄像设备",
+                
+                // Quote Modal
+                "request_quote": "请求报价",
+                "full_name": "全名",
+                "name_placeholder": "您的全名",
+                "company_name": "公司名称",
+                "company_placeholder": "您的公司名称",
+                "email_address": "电子邮件地址",
+                "email_placeholder": "your.email@example.com",
+                "phone_number": "电话号码",
+                "phone_placeholder": "Enter Your Whats App Number",
+                "product_interest": "产品兴趣",
+                "select_category": "选择产品类别",
+                "electronics_option": "电子产品与配件",
+                "furniture_option": "家具",
+                "fashion_option": "时尚与服装",
+                "machinery_option": "机械与工具",
+                "health_option": "健康产品",
+                "auto_option": "汽车零件",
+                "other_option": "其他",
+                "shipment_method": "首选运输方式",
+                "select_shipment": "选择运输方式",
+                "air_option_form": "空运",
+                "sea_option_form": "海运",
+                "both_option": "两者（取决于产品）",
+                "unsure_option": "不确定",
+                "your_requirements": "您的要求",
+                "requirements_placeholder": "请描述您的产品要求、数量和其他任何细节...",
+                "submit_request": "提交请求",
+                
+                // How It Works
+                "how_it_works_title": "运作方式",
+                "how_it_works_description": "我们从中国无忧进口的简单4步流程",
+                "step1_title": "1. 提交请求",
+                "step1_description": "告诉我们您想进口什么产品以及您的要求",
+                "step2_title": "2. 供应商匹配",
+                "step2_description": "我们寻找经过验证的供应商并协商最优惠的价格",
+                "step3_title": "3. 运输与物流",
+                "step3_description": "我们处理所有运输和清关事宜",
+                "step4_title": "4. 交付",
+                "step4_description": "您的产品交付到您指定的地点",
+                
+                // CTA Section
+                "cta_title": "立即开始从中国进口",
+                "cta_description": "加入数百家通过我们的端到端解决方案简化进口流程的企业",
+                
+                // Footer
+                "footer_title": "Singular Import",
+                "footer_description": "通过可靠的空运和海运解决方案，为全球企业简化从中国的进口流程。",
+                "quick_links": "快速链接",
+                "about_us": "关于我们",
+                "our_products": "我们的产品",
+                "how_it_works_link": "运作方式",
+                "testimonials": "客户评价",
+                "contact_us": "联系我们",
+                "contact_info": "联系信息",
+                "address": "进口街123号，商业区",
+                "rights_reserved": "保留所有权利。",
+                
+                // Newsletter
+                "newsletter_title": "随时了解进口机会",
+                "newsletter_description": "订阅我们的新闻通讯，获取来自中国的最新产品采购见解和进口趋势。",
+                "email_newsletter_placeholder": "您的电子邮件地址",
+                "subscribe": "订阅"
+            }
+        };
+
         // Product data
         const products = {
             electronics: {
@@ -1459,6 +1960,72 @@
             }
         };
 
+        // Language functionality
+        let currentLanguage = 'en';
+        const languageButton = document.getElementById('languageButton');
+        const currentLanguageText = document.getElementById('currentLanguage');
+        const languageDropdown = document.getElementById('languageDropdown');
+        const languageOptions = document.querySelectorAll('.language-option');
+
+        // Toggle language dropdown
+        languageButton.addEventListener('click', (e) => {
+            e.stopPropagation();
+            languageDropdown.classList.toggle('show');
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!languageButton.contains(e.target) && !languageDropdown.contains(e.target)) {
+                languageDropdown.classList.remove('show');
+            }
+        });
+
+        // Change language
+        languageOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                const lang = option.getAttribute('data-lang');
+                changeLanguage(lang);
+                languageDropdown.classList.remove('show');
+                
+                // Update active class
+                languageOptions.forEach(opt => opt.classList.remove('active'));
+                option.classList.add('active');
+            });
+        });
+
+        // Function to change language
+        function changeLanguage(lang) {
+            currentLanguage = lang;
+            currentLanguageText.textContent = translations[lang].current_language;
+            
+            // Update all elements with data-translate attribute
+            document.querySelectorAll('[data-translate]').forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (translations[lang][key]) {
+                    element.textContent = translations[lang][key];
+                }
+            });
+            
+            // Update all elements with data-translate-placeholder attribute
+            document.querySelectorAll('[data-translate-placeholder]').forEach(element => {
+                const key = element.getAttribute('data-translate-placeholder');
+                if (translations[lang][key]) {
+                    element.setAttribute('placeholder', translations[lang][key]);
+                }
+            });
+            
+            // Update navigation links
+            document.querySelectorAll('.nav-links a').forEach((link, index) => {
+                const keys = ['services', 'products', 'how_it_works', 'contact'];
+                if (translations[lang][keys[index]]) {
+                    link.textContent = translations[lang][keys[index]];
+                }
+            });
+            
+            // Save language preference
+            localStorage.setItem('preferredLanguage', lang);
+        }
+
         // Newsletter functionality
         const newsletterContainer = document.getElementById('newsletterContainer');
         const newsletterClose = document.getElementById('newsletterClose');
@@ -1491,7 +2058,9 @@
             console.log('Newsletter subscription:', email);
             
             // Show success message
-            alert('Thank you for subscribing to our newsletter!');
+            alert(currentLanguage === 'en' ? 'Thank you for subscribing to our newsletter!' : 
+                 currentLanguage === 'bn' ? 'আমাদের নিউজলেটার সাবস্ক্রাইব করার জন্য ধন্যবাদ!' :
+                 '感谢您订阅我们的新闻通讯！');
             newsletterContainer.classList.add('hidden');
             
             // Remember user's preference for 90 days
@@ -1514,11 +2083,27 @@
             }
         }
         
-        // Run check on page load
-        checkNewsletterPreference();
-
-        // Animation for product cards
+        // Check for saved language preference
+        function checkLanguagePreference() {
+            const savedLanguage = localStorage.getItem('preferredLanguage');
+            if (savedLanguage && translations[savedLanguage]) {
+                changeLanguage(savedLanguage);
+                
+                // Update active class
+                languageOptions.forEach(option => {
+                    option.classList.remove('active');
+                    if (option.getAttribute('data-lang') === savedLanguage) {
+                        option.classList.add('active');
+                    }
+                });
+            }
+        }
+        
+        // Run checks on page load
         document.addEventListener('DOMContentLoaded', function() {
+            checkNewsletterPreference();
+            checkLanguagePreference();
+            
             const productCards = document.querySelectorAll('.product-card');
             
             // Initially show all products
@@ -1570,8 +2155,8 @@
                     
                     if (productData) {
                         // Update modal content
-                        document.getElementById('modalProductTitle').textContent = productData.title;
-                        document.getElementById('modalProductName').textContent = productData.title;
+                        document.getElementById('modalProductTitle').textContent = translations[currentLanguage].product_details;
+                        document.getElementById('modalProductName').textContent = translations[currentLanguage][`product${Array.from(productCardsAll).indexOf(card) + 1}_title`];
                         document.getElementById('modalProductDescription').textContent = productData.description;
                         
                         // Update product icon
@@ -1643,7 +2228,9 @@
                 
                 // Here you would typically send the form data to a server
                 // For this example, we'll just show an alert and close the modal
-                alert('Thank you for your inquiry! We will contact you shortly with a quotation.');
+                alert(currentLanguage === 'en' ? 'Thank you for your inquiry! We will contact you shortly with a quotation.' : 
+                     currentLanguage === 'bn' ? 'আপনার inquiry এর জন্য ধন্যবাদ! আমরা শীঘ্রই একটি quotation নিয়ে আপনার সাথে যোগাযোগ করব।' :
+                     '感谢您的询问！我们将尽快与您联系并提供报价。');
                 quoteModal.style.display = 'none';
                 document.body.style.overflow = 'auto';
                 quoteForm.reset();
